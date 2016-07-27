@@ -1,0 +1,23 @@
+{
+  "name": "flattenarray",
+  "version": "1.0.0",
+  "description": "function to flatten nested arrays",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eschiebel/flattenarray.git"
+  },
+  "author": "Ed Schiebel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eschiebel/flattenarray/issues"
+  },
+  "homepage": "https://github.com/eschiebel/flattenarray#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
