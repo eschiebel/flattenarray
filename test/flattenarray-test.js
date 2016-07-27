@@ -1,7 +1,11 @@
+"use strict";
 var chai = require("chai");
 var expect = chai.expect;
 var should = chai.should;
+
+// pick one or the other.
 var flattenarray = require("../src/flattenarray");
+//var flattenarray = require("../src/flattenarray2");
 
 describe("flatten nested array", function() {
 
@@ -40,6 +44,6 @@ describe("flatten nested array", function() {
         var arr = [1, [2,3], 4, [[5,6], [7,8]], [9, 10]];
         var flat = flattenarray(arr);
         expect(flat).to.deep.equal([1,2,3,4,5,6,7,8,9,10]);
-    })
+    });
 
 });

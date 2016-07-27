@@ -2,12 +2,12 @@
 var logger = require('./logger');
 
 //*****************
-//  this implementation uses Array.reduce to flatten each array element array
-//      it comes across.
-//  See flattenarray2.js for a totaly hand-crafted solution, if that's what
-//      you're after
+//  This implementation is a totally hand-crafted solution.
+//  See flattenarray.js for one that uses Array.reduce
+//      to flatten each array element array it comes across.
 //*****************
 const MODULENAME = 'flattenarray';
+
 /*
 ** flattenarray: flatten nested arrays
 ** arr: Array: input array, possibly with sub-arrays
@@ -27,20 +27,23 @@ function flattenarray(arr) {
 */
 function flattenEachLevel(arr) {
     const FNAME = "flattenEachLevel";
-
     logger.log(MODULENAME, FNAME, JSON.stringify(arr));
 
     // concatinate each element into the flattened array
-    var flat = arr.reduce(function(workingResult, currentElement) {
+    var flat = [];
+    var i, currentElement;
+    for(i =0; i < arr.length; ++i) {
+        currentElement = arr[i];
+
         logger.log(MODULENAME, FNAME, "reducing", JSON.stringify(currentElement));
         if(Array.isArray(currentElement)) {
             // step donw another level
-            return workingResult.concat(flattenEachLevel(currentElement));
+            flat = flat.concat(flattenEachLevel(currentElement));
         }
         else {
-            return workingResult.concat(currentElement);
+            flat = flat.concat(currentElement);
         }
-    }, []);
+    }
     logger.log(MODULENAME, FNAME, "returns", JSON.stringify(flat));
     return flat;
 }
